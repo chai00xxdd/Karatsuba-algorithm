@@ -16,20 +16,15 @@ int main()
 	
 	Array x, y;
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF|_CRTDBG_LEAK_CHECK_DF);
-	int n = 100000;
-	/*bool valid_input=INPUT::scanArrays(x, y);
+	bool valid_input=INPUT::scanArrays(x, y);
 	if (!valid_input)
 	{
 		cout << "wrong output"<<std::endl;
 		return 0;
-	}*/
+	}
 	
 	ofstream file("Measure.txt");
-	x.resize(n);
-	y.resize(n);
-	x.setAll(9);
-	y.setAll(9);
-	//messureLongMul(file, x, y);
+	messureLongMul(file, x, y);
 	messureKarastubaRecursive(file, x, y);
 	messureKarastubaIterative(file, x, y);
 	file.close();
